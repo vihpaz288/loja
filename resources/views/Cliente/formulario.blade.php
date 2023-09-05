@@ -15,6 +15,10 @@
             <label for="inputEmail4" class="form-label">Nome</label>
             <input type="text" name="nome" class="form-control" id="inputEmail4">
           </div>
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Endereço</label>
+            <input type="text" name="nome" class="form-control" id="inputEmail4">
+          </div>
           <div class="col-md-6"> forma de pagamento
           <select class="form-control" name="permissaoID" id="">
               <option value="1">Cartão </option>

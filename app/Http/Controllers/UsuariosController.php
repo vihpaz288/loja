@@ -28,7 +28,7 @@ class UsuariosController extends Controller
 
         }
     
-        return view('usuario.home', compact('produtos'));
+        return view('home', compact('produtos'));
     }
 
     public function home()

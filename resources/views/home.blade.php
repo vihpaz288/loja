@@ -23,9 +23,15 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{route('produto.create')}}">Criar produto</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('sair')}}">Sair</a>
+              </li>
               @else
               <li class="nav-item">
                 <a class="nav-link" href="">carrinho</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('sair')}}">Sair</a>
               </li>
               @endif
               @else
@@ -39,9 +45,7 @@
               
               @endif
              
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('sair')}}">Sair</a>
-              </li>
+              
             
             </ul>
             <form action="{{route ('home')}}" method="get">
@@ -67,6 +71,7 @@
                 <li class="list-group-item">R$: {{ $produtos->precoUnitario}}</li>
               </ul>
             <div class="card-body">
+              @if (auth()->check())
               @if (auth()->user()->permissaoID == 1)
                   
               <a href="/vendedor/edit/{{$produtos->id }}" class="card-link"><i class="fa-solid fa-pen-to-square" style="color: #170703;"></i></a>
@@ -78,8 +83,9 @@
               @else
               <div class="card-body">
                 <a href="" class="card-link">Comprar</i></a>
-                <a href="" class="card-link">Adicionar ao carrinho</a>
+                <a href="{{route('carrinho.create')}}" class="card-link">Adicionar ao carrinho</a>
               </div>
+              @endif
               @endif
               </div>
           </div>
