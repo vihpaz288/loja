@@ -28,7 +28,7 @@
               </li>
               @else
               <li class="nav-item">
-                <a class="nav-link" href="">carrinho</a>
+                <a class="nav-link" href="{{route('carrinho.index')}}">carrinho</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{route('sair')}}">Sair</a>
@@ -82,8 +82,15 @@
               </form>
               @else
               <div class="card-body">
-                <a href="" class="card-link">Comprar</i></a>
-                <a href="{{route('carrinho.create')}}" class="card-link">Adicionar ao carrinho</a>
+                <form action="{{route('carrinho.store')}}" method="POST">
+                  @csrf
+                  <input type = "hidden" name="id" value="{{$produtos->id }}">
+                  <input type = "hidden" name="decricao" value="{{ $produtos->decricao}}">
+                  <input type = "hidden" name="precoUnitario" value="{{ $produtos->precoUnitario}}">
+                  <input type = "hidden" name="foto" value="{{asset('storage/'. $produtos->foto)}}">
+                  <input type="number" name="quantidade" value="1">
+                  <button type="submit">Adicionar carrinho</button>
+              </form>
               </div>
               @endif
               @endif

@@ -26,9 +26,11 @@ Route::get('/login', [LoginController::class, 'login'])->name('login.create');
 Route::post('/login', [LoginController::class, 'autenticacao'])->name('login');
 Route::get('/sair', [LoginController::class, 'sair'])->name('sair');
 
-Route::get('/carrinho/create', [CarrinhoController::class, 'create'])->name('carrinho.create');
+Route::get('/carrinho/index', [CarrinhoController::class, 'lista'])->name('carrinho.index');
+//Route::post('/carrinho/index', [CarrinhoController::class, 'addItem'])->name('carrinho.addItem');
+
 Route::post('/carrinho/store', [CarrinhoController:: class, 'store'])->name('carrinho.store');
-Route::get('/carrinho/edit/{id}', [CarrinhoController:: class, 'edit'])->name('carrinho.edit');
-Route::put('/carrinho/update/{id}', [CarrinhoController:: class, 'update'])->name('carrinhos.update');
-Route::delete('/carrinho/{id}', [CarrinhoController:: class, 'destroy']); 
+// Route::get('/carrinho/edit/{id}', [CarrinhoController:: class, 'edit'])->name('carrinho.edit');
+// Route::put('/carrinho/update/{id}', [CarrinhoController:: class, 'update'])->name('carrinho.update');
+// Route::delete('/carrinho/{id}', [CarrinhoController:: class, 'destroy']); 
 

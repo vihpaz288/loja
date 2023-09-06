@@ -3,53 +3,53 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produtos;
+use App\Models\carrinho;
 use Illuminate\Http\Request;
 
 class CarrinhoController extends Controller
 {
-
-     public function create()
-     {
-      $produtos = Produtos::all();
-       
-      return view('carrinho.index',  compact('produtos'));
-     }
-
-     public function store(Request $request)
+    public function lista()
     {
-         //dd($request->all());
-     $path = $request->file("foto")->store('produtos', 'public');
+        $itens = carrinho::with('produtos')->where('usuarioID', auth()->user()->id)->get();
+       
+        return view('carrinho.index', compact('itens'));
+    }
+
+    public function store(Request $request)
+     {
+    //      //dd($request->all());
+     //$path = $request->file("foto")->store('produtos', 'public');
         
-        Produtos::create([
-            'decricao' => $request->decricao,
-            'precoUnitario' => $request->precoUnitario,
+        carrinho::create([
+            'produtoID' => $request->id,
+            'usuarioID' => auth()->user()->id,
             'quantidade' => $request->quantidade,
-            'foto' => $path
-         ]);
+         //'foto' => $path
+          ]);
 
-         return redirect()->route('home');
+         return redirect()->route('carrinho.index');
      }
 
-     public function destroy($id){
+    //  public function destroy($id){
 
-         Produtos::findOrFail($id)->delete();
-        return redirect()->route('home');
-     }
+    //      Produtos::findOrFail($id)->delete();
+    //     return redirect()->route('carrinho.create');
+    //  }
 
-    public function edit($id){
-        $produtos = Produtos::findOrFail($id);
+    // public function edit($id){
+    //     $produtos = Produtos::findOrFail($id);
 
-        return view('carrinho.edit', ['produtos' => $produtos]);
+    //     return view('carrinho.edit', ['produtos' => $produtos]);
 
-     }
+    //  }
 
-     public function update(Request $request){
+    //  public function update(Request $request){
    
 
-         Produtos::findOrFail($request->id)->update($request->all());
+    //      Produtos::findOrFail($request->id)->update($request->all());
 
 
-        return redirect()->route('home');
-     }
+    //     return redirect()->route('carrinho.create');
+    //  }
 
 }

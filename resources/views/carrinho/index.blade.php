@@ -16,22 +16,36 @@
                 <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
               </li>
               
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        @foreach ($produtos as $produtos)
-        <div class="col">
-          <div class="card h-100">
-            <img src="{{asset('storage/'. $produtos->foto)}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Descrição</h5>
-              <p class="card-text">{{ $produtos->decricao}}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">R$: {{ $produtos->precoUnitario}}</li>
-              </ul>
-            </div>
-        </div>
-        @endforeach
-      </div>
+              <table class="table">
+            
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">... </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($itens as $iten)
+                      
+                  
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{$iten->produtos->decricao}}</td>
+                    <td>{{$iten->produtos->precoUnitario}}</td>
+                    <td><form action="" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit"><i class="fa-solid fa-trash" style="color: #090201;"></i></button>
+                    </form></td>
+                  </tr>
+                  @endforeach
+           
+                </tbody>
+              </table>
+
+              <a href="">Finalizar Comprar</a>
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>

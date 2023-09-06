@@ -17,8 +17,8 @@
           </div>
           <div class="col-md-6">
           <select class="form-control" name="permissaoID" id="">
-              <option value="1">comun</option>
-              <option value="2">admin</option>
+              <option value="1">Vendedor</option>
+              <option value="2">Cliente</option>
             </select>
           </div>
           <div class="col-md-6">
