@@ -13,9 +13,11 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
+                <a class="btn btn-success m-1" aria-current="page" href="{{route('home')}}">Home</a>
               </li>
               
+            </nav>
+            <h5>Valor total: {{$total}}</h5>
               <table class="table">
             
                 <thead>
@@ -44,16 +46,16 @@
                     <td>{{($iten->produtos->precoUnitario) * ($iten->quantidade)}}</td>
 
                     <td>
-                      <button type="submit"><i class="fa-solid fa-trash" style="color: #090201;"></i></button>
+                      <button type="submit" class="btn btn-success">Remover</button>
                     </form></td>
                   </tr>
                   @endforeach
                   
                 </tbody>
               </table>
-              <h3>Valor total: {{$total}}</h3>
+              
 
-              <a href="{{route('carrinho.formulario')}}">Finalizar Comprar</a>
+              <a href="{{route('carrinho.formulario')}}" class="btn btn-success">Finalizar Comprar</a>
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>

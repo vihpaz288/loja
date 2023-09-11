@@ -8,7 +8,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
-    <p class="fw-bold">EDIÇÃO DE PRODUTOS</p>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  <li class="nav-item">
+    <a class="btn btn-success" aria-current="page" href="{{route('home')}}">Home</a>
+  </li>
+</nav>
+    <h1>Edição de produtos</h1>
 <form action="/vendedor/update/{{$produtos->id }}" method="POST" enctype="multipart/form-data" class="row g-3" >
 @csrf
 @method('PUT')
@@ -33,7 +40,7 @@
   
   
     <div class="col-12">
-      <button type="submit" class="btn btn-primary">Editar</button>
+      <button type="submit" class="btn btn-success">Editar</button>
     </div>
   </form>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

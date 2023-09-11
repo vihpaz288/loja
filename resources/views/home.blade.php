@@ -14,7 +14,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
+                <a class="btn btn-success m-1" aria-current="page" href="{{route('home')}}" >Home</a>
               </li>
               {{-- {{dd(auth()->user())}} --}}
               @if (auth()->check())
@@ -22,43 +22,43 @@
               
               @if (auth()->user()->permissaoID == 1)
               <li class="nav-item">
-                <a class="nav-link" href="{{route('produto.create')}}">Criar produto</a>
+                <a class="btn btn-success m-1" href="{{route('produto.create')}}">Criar produto</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{route('sair')}}">Sair</a>
+                <a class="btn btn-danger m-1" href="{{route('sair')}}">Sair</a>
               </li>
               @else
               <li class="nav-item">
-                <a class="nav-link" href="{{route('carrinho.index')}}">carrinho</a>
+                <a class="btn btn-success m-1" href="{{route('carrinho.index')}}">Carrinho<i class="fa-solid fa-cart-shopping ms-3" style="color: #000000;"></i></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{route('sair')}}">Sair</a>
+                <a class="btn btn-danger m-1" href="{{route('sair')}}">Sair</a>
               </li>
               @endif
               @else
               <li class="nav-item">
-                <a class="nav-link" href="{{route('create')}}">Se cadastrar</a>
+                <a class="btn btn-success m-1" href="{{route('create')}}">Se cadastrar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{route('login.create')}}">Login</a>
+                <a class="btn btn-success m-1" href="{{route('login.create')}}">Login</a>
               </li>
            
               @endif
              
             </ul>
-            <form action="{{route ('home')}}" method="get">
-              <div class="mb-3">
+            <form action="{{route ('home')}}" method="get" class="d-flex" role="search" >
+             
                 <input type="text" class="form-control" id="search" name="search" placeholder="digite uma busca">
-                <button type="submit" ><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></button>
+                <button type="submit" class="btn btn-success m-1">pesquisar</button>
               </div>
             </form>
           </div>
         </div>
       </nav>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="row ">
         @foreach ($produtos as $produtos)
-        <div class="col">
-          <div class="card h-100">
+        <div class="col-3 mx-auto">
+          <div class="card" style="width: 100%;">
             <img src="{{asset('storage/'. $produtos->foto)}}" class="card-img-top" alt="...">
             <div class="card-body">
               
@@ -70,13 +70,20 @@
             <div class="card-body">
               @if (auth()->check())
               @if (auth()->user()->permissaoID == 1)
-                  
-              <a href="/vendedor/edit/{{$produtos->id }}" class="card-link"><i class="fa-solid fa-pen-to-square" style="color: #170703;"></i></a>
-              <form action="{{route('produto.delete', $produtos->id)}}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit"><i class="fa-solid fa-trash"></i></button>
-              </form>
+                  <div class="row">
+                    <div class="col-2">
+                      <a href="/vendedor/edit/{{$produtos->id }}" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></a>
+                    </div>
+                    <div class="col-2">
+                      <form action="{{route('produto.delete', $produtos->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-success" ><i class="fa-solid fa-trash"></i></button>
+                      </form>
+                    </div>
+                  </div>
+             
+              
               @else
               <div class="card-body">
                 <form action="{{route('carrinho.store')}}" method="POST">
@@ -86,7 +93,7 @@
                   <input type = "hidden" name="precoUnitario" value="{{ $produtos->precoUnitario}}">
                   <input type = "hidden" name="foto" value="{{asset('storage/'. $produtos->foto)}}">
                   <input type="number" name="quantidade" value="1">
-                  <button type="submit">Adicionar carrinho</button>
+                  <button type="submit" class="btn btn-success">Adicionar carrinho</button>
               </form>
               </div>
               @endif

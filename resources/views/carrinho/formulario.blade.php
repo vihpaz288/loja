@@ -16,6 +16,7 @@
             <input type="text" name="nome" class="form-control" id="inputEmail4">
           </div>
           <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Forma de pagamento</label>
           <select class="form-control" name="opcao" id="">
               <option value="1">pix</option>
               <option value="2">Cartao</option>
@@ -31,7 +32,7 @@
           </div>
         <div class="col-12">
             
-          <a href="{{route('carrinho.finalizar')}}">finalizar</a>
+          <a href="{{route('carrinho.finalizar')}}" class="btn btn-success">finalizar</a>
         </div>
       </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> 
