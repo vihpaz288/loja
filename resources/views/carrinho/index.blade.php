@@ -23,29 +23,37 @@
                     <th scope="col">#</th>
                     <th scope="col">Descrição</th>
                     <th scope="col">Valor</th>
-                    <th scope="col">... </th>
+                    <th scope="col">quantidade </th>
+                    <th scope="col">Total </th>
+
+
                   </tr>
+                  
                 </thead>
                 <tbody>
                   @foreach ($itens as $iten)
                       
-                  
+                  <form action="{{route('carrinho.destroy', $iten->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
                   <tr>
                     <th scope="row">1</th>
                     <td>{{$iten->produtos->decricao}}</td>
                     <td>{{$iten->produtos->precoUnitario}}</td>
-                    <td><form action="" method="POST">
-                      @csrf
-                      @method('DELETE')
+                    <td>{{$iten->quantidade}}</td>
+                    <td>{{($iten->produtos->precoUnitario) * ($iten->quantidade)}}</td>
+
+                    <td>
                       <button type="submit"><i class="fa-solid fa-trash" style="color: #090201;"></i></button>
                     </form></td>
                   </tr>
                   @endforeach
-           
+                  
                 </tbody>
               </table>
+              <h3>Valor total: {{$total}}</h3>
 
-              <a href="">Finalizar Comprar</a>
+              <a href="{{route('carrinho.formulario')}}">Finalizar Comprar</a>
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>

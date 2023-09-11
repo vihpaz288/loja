@@ -11,8 +11,13 @@ class CarrinhoController extends Controller
     public function lista()
     {
         $itens = carrinho::with('produtos')->where('usuarioID', auth()->user()->id)->get();
-       
-        return view('carrinho.index', compact('itens'));
+        $valorTotal = [];
+       foreach($itens as $iten){
+            $valor = ($iten->produtos->precoUnitario) * ($iten->quantidade);
+            array_push($valorTotal, $valor);
+       }
+       $total = array_sum($valorTotal);
+        return view('carrinho.index', compact('itens', 'total'));
     }
 
     public function store(Request $request)
@@ -29,27 +34,21 @@ class CarrinhoController extends Controller
 
          return redirect()->route('carrinho.index');
      }
+     public function formulario()
+     {
+        return view('carrinho.formulario');
+     }
 
-    //  public function destroy($id){
+     public function finalizar()
+     {
+        return view('carrinho.finalizar');
+     }
 
-    //      Produtos::findOrFail($id)->delete();
-    //     return redirect()->route('carrinho.create');
-    //  }
+   public function destroy($id){
 
-    // public function edit($id){
-    //     $produtos = Produtos::findOrFail($id);
+      carrinho::findOrFail($id)->delete();
+       return redirect()->route('carrinho.index');
+  }
 
-    //     return view('carrinho.edit', ['produtos' => $produtos]);
-
-    //  }
-
-    //  public function update(Request $request){
-   
-
-    //      Produtos::findOrFail($request->id)->update($request->all());
-
-
-    //     return redirect()->route('carrinho.create');
-    //  }
 
 }

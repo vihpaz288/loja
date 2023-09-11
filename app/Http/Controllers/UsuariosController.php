@@ -13,9 +13,8 @@ class UsuariosController extends Controller
 {
 
 
-    public function index()
+    public function home()
     {
-
         $search = request('search');
 
         if ($search){
@@ -29,13 +28,6 @@ class UsuariosController extends Controller
         }
     
         return view('home', compact('produtos'));
-    }
-
-    public function home()
-    {
-        $produtos = Produtos::all();
-       
-        return view('home',  compact('produtos'));
     }
 
     public function create()
