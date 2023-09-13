@@ -27,26 +27,32 @@
                     <th scope="col">Valor</th>
                     <th scope="col">quantidade </th>
                     <th scope="col">Total </th>
+                    <th scope="col"></th>
+
 
 
                   </tr>
                   
                 </thead>
                 <tbody>
+                
+                  <input type="hidden" value="{{$contador = 1}}">
                   @foreach ($itens as $iten)
                       
                   <form action="{{route('carrinho.destroy', $iten->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
                   <tr>
-                    <th scope="row">1</th>
+                    <td scope="row">{{$contador ++}}</td>
                     <td>{{$iten->produtos->decricao}}</td>
                     <td>{{$iten->produtos->precoUnitario}}</td>
-                    <td>{{$iten->quantidade}}</td>
+                    <td>{{$iten->quantidade}} 
+
+                </td>
                     <td>{{($iten->produtos->precoUnitario) * ($iten->quantidade)}}</td>
 
                     <td>
-                      <button type="submit" class="btn btn-success">Remover</button>
+                      <button type="submit" class="btn btn-danger">Remover</button>
                     </form></td>
                   </tr>
                   @endforeach
@@ -54,8 +60,49 @@
                 </tbody>
               </table>
               
+              
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Finalizar compra
+</button>
 
-              <a href="{{route('carrinho.formulario')}}" class="btn btn-success">Finalizar Comprar</a>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Insira seus dados</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Nome</label>
+          <input type="text" name="nome" class="form-control" id="inputEmail4">
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Forma de pagamento</label>
+        <select class="form-control" name="opcao" id="">
+            <option value="1">pix</option>
+            <option value="2">Cartao</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">endereço</label>
+          <input type="text" name="endereco" class="form-control" id="inputEmail4">
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">telefone</label>
+          <input type="text" name="telefone" class="form-control" id="inputEmail4">
+        </div>
+      <div class="col-12">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <a href="{{route('carrinho.finalizar')}}" class="btn btn-success">Comprar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>

@@ -15,14 +15,21 @@ class ProdutosController extends Controller
 
      public function store(Request $request)
     {
+      
          //dd($request->all());
-     $path = $request->file("foto")->store('produtos', 'public');
+     $path = $request->file("foto1")->store('produtos', 'public');
+     $path2 = $request->file("foto2")->store('produtos', 'public');
+     $path3 = $request->file("foto3")->store('produtos', 'public');
+
         
         Produtos::create([
             'decricao' => $request->decricao,
             'precoUnitario' => $request->precoUnitario,
             'quantidade' => $request->quantidade,
-            'foto' => $path
+            'foto1' => $path,
+            'foto2' => $path2,
+            'foto3' => $path3,
+
          ]);
 
          return redirect()->route('home');

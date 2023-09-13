@@ -15,6 +15,14 @@ class Produtos extends Model
         'decricao',
         'precoUnitario',
         'quantidade',
-        'foto'
+        'foto1',
+        'foto2',
+        'foto3'
+
     ];
+
+    public function pedido()
+    {
+        return $this->belongsTo(pedidos::class, 'produtoId', 'id');
+    }
 }

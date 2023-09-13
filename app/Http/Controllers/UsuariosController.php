@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\carrinho;
 use App\Models\Produtos;
 use App\Models\User;
 use App\Models\Usuarios;
@@ -15,6 +16,11 @@ class UsuariosController extends Controller
 
     public function home()
     {
+        if (auth()->check()){
+            $itens = carrinho::with('produtos')->where('usuarioID', auth()->user()->id)->get();
+        }else{
+            $itens = 0;
+        }
         $search = request('search');
 
         if ($search){
@@ -27,7 +33,7 @@ class UsuariosController extends Controller
 
         }
     
-        return view('home', compact('produtos'));
+        return view('home', compact('produtos', 'itens'));
     }
 
     public function create()
@@ -38,7 +44,7 @@ class UsuariosController extends Controller
      public function store(Request $request)
     {
          //dd($request->all());
-        $senha = Hash::make($request->senha);
+        $senha = Hash::make($request->password);
 
         User::create([
             'name' => $request->nome,

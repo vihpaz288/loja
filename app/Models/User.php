@@ -68,6 +68,11 @@ class User extends Authenticatable
        return $this->belongsTo(PermissaoUsuario::class, 'permissaoID', 'id');
    }
 
+   public function pedidos()
+   {
+        return $this->hasMany(pedidos::class, 'usuarioId', 'id');
+   }
+
 }
 
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Produtos;
 use App\Models\carrinho;
+use App\Models\pedidoItem;
+use App\Models\pedidos;
 use Illuminate\Http\Request;
 
 class CarrinhoController extends Controller
@@ -22,25 +24,37 @@ class CarrinhoController extends Controller
 
     public function store(Request $request)
      {
-    //      //dd($request->all());
-     //$path = $request->file("foto")->store('produtos', 'public');
+    
         
         carrinho::create([
             'produtoID' => $request->id,
             'usuarioID' => auth()->user()->id,
             'quantidade' => $request->quantidade,
-         //'foto' => $path
+        
           ]);
 
-         return redirect()->route('carrinho.index');
+         return redirect()->route('home');
      }
      public function formulario()
      {
         return view('carrinho.formulario');
      }
 
-     public function finalizar()
+     public function finalizar(Request $request)
      {
+        
+         $pedido = pedidos::create([
+            'usuarioId' => auth()->user()->id,
+         ]);
+         
+
+         // pedidoItem::create([
+         //    'produtoId' => $request->id,
+         //    'pedidoId' => $request->itens,
+         //    'valor' => $request->valor,
+         //    'quantidade' => $request->quantidade,
+         //    'subtotal' =>$request->total,
+         // ]);
         return view('carrinho.finalizar');
      }
 

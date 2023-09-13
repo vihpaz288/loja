@@ -35,7 +35,10 @@
       </div>
       <p>ATENÇÃO IMAGEM NÃO PODE SER ALTERADA APÓS CADASTRO</p>
     <label for="foto" class="form-label">Coloque a imagem do item</label>
-    <input class="form-control" name="foto" type="file" id="formFileMultiple" multiple>
+    <input class="form-control" name="foto1" type="file" id="formFileMultiple" multiple>
+    <input class="form-control" name="foto2" type="file" id="formFileMultiple" multiple>
+    <input class="form-control" name="foto3" type="file" id="formFileMultiple" multiple>
+    
   </div>
   
   
