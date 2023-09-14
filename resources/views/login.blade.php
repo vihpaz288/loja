@@ -17,6 +17,15 @@
     <a class="btn btn-success m-1" aria-current="page" href="{{route('home')}}">Home</a>
   </li>
 </nav>
+
+@if ($errors->any())
+    <ul class="alert alert-danger col-5 mx-auto" role="alert" >
+      @foreach ($errors->all() as $error)
+        <li style="color: brown">{{$error}}</li>
+      @endforeach
+    </ul>
+@endif
+
   <div class="login">
     <div class="row">
       <div class="col-5 mx-auto">

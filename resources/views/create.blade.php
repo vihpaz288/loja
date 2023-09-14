@@ -8,6 +8,26 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  <li class="nav-item">
+    <a class="btn btn-success m-1" aria-current="page" href="{{route('home')}}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="btn btn-success m-1" href="{{route('login.create')}}">Login</a>
+  </li>
+</nav>
+
+  @if ($errors->any())
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li style="color: brown">{{$error}}</li>
+      @endforeach
+    </ul>
+      
+  @endif
     
     <form action="{{route('store')}}" method="POST" class="row g-3">
       @csrf

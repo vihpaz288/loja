@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProdutosFormRequest;
 use App\Models\Produtos;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class ProdutosController extends Controller
         return view('vendedor.create');
      }
 
-     public function store(Request $request)
+     public function store(ProdutosFormRequest $request)
     {
       
          //dd($request->all());

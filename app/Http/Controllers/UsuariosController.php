@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserFormRequest;
 use App\Models\carrinho;
 use App\Models\Produtos;
 use App\Models\User;
@@ -41,18 +42,20 @@ class UsuariosController extends Controller
         return view('create');
      }
 
-     public function store(Request $request)
+     public function store(UserFormRequest $request)
     {
-         //dd($request->all());
-        $senha = Hash::make($request->password);
+         //dd($request->all())
+        
 
+        $senha = Hash::make($request->password);
         User::create([
-            'name' => $request->nome,
+            'name' => $request->name,
             'email' => $request->email,
             'permissaoID' => $request->permissaoID,
             'password' => $senha,
          ]);
-
+        
+         
          return to_route('login.create');
      }
 

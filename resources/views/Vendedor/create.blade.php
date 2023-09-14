@@ -17,6 +17,14 @@
   </li>
 </nav>
     <h1>Cadastro de produtos</h1>
+    @if ($errors->any())
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li style="color: brown">{{$error}}</li>
+      @endforeach
+    </ul>
+      
+  @endif
 <form action="{{route('produto.store')}}" method="POST" enctype="multipart/form-data" class="row g-3" >
 @csrf
 <div class="mb-3">

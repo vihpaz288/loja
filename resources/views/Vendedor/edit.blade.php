@@ -33,10 +33,6 @@
         <span class="input-group-text">Quantidade:</span>
         <input type="float" name="quantidade" value="{{ $produtos->quantidade}}" class="form-control" aria-label="Amount (to the nearest dollar)"> 
       </div>
-    <label for="foto" class="form-label">Coloque a imagem do item</label>
-    <input class="form-control" name="foto" type="file" id="formFileMultiple" multiple>
-    <img src="{{asset('storage/'. $produtos->foto)}}" class="rounded float-start" alt="...">
-  </div>
   
   
     <div class="col-12">

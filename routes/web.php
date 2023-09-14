@@ -16,7 +16,7 @@ Route::prefix('vendedor')->group(function () {
 
 Route::get('/home', [UsuariosController:: class, 'home'])->name('home');
 Route::get('/create', [UsuariosController:: class, 'create'])->name('create');
-Route::post('/store', [UsuariosController:: class, 'store'])->name('store');
+Route::post('/store', [UsuariosController:: class, 'store'])->name('user.store');
 Route::get('/cliente/formulario', [UsuariosController::class, 'formulario'])->name('cliente.formulario');
 
 Route::get('/login', [LoginController::class, 'login'])->name('login.create');

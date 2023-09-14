@@ -18,6 +18,8 @@
               
             </nav>
             <h5>Valor total: {{$total}}</h5>
+            <form action="{{route('carrinho.finalizar')}}" method="POST">
+              @csrf
               <table class="table">
             
                 <thead>
@@ -59,6 +61,7 @@
                   
                 </tbody>
               </table>
+            </form>
               
               
 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -66,13 +69,22 @@
 </button>
 
 <!-- Modal -->
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Insira seus dados</h1>
+        @if ($errors->any())
+    <ul class="alert alert-danger col-5 mx-auto" role="alert" >
+      @foreach ($errors->all() as $error)
+        <li style="color: brown">{{$error}}</li>
+      @endforeach
+    </ul>
+@endif
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
       <div class="modal-body">
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Nome</label>
@@ -97,7 +109,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="submit"></button>
         <a href="{{route('carrinho.finalizar')}}" class="btn btn-success">Comprar</a>
+        
       </div>
     </div>
   </div>

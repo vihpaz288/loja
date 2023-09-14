@@ -57,9 +57,7 @@
               </li>
               @endif
               @else
-              <li class="nav-item">
-                <a class="btn btn-success m-1" href="{{route('create')}}">Se cadastrar</a>
-              </li>
+              
               <li class="nav-item">
                 <a class="btn btn-success m-1" href="{{route('login.create')}}">Login</a>
               </li>
@@ -68,7 +66,6 @@
              
             </ul>
             <form action="{{route ('home')}}" method="get" class="d-flex" role="search" >
-             
                 <input type="text" class="form-control" id="search" name="search" placeholder="digite uma busca">
                 <button type="submit" class="btn btn-success m-1">Pesquisar</button>
               </div>

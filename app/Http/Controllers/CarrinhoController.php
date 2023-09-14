@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FinalizarFormRequest;
 use App\Models\Produtos;
 use App\Models\carrinho;
 use App\Models\pedidoItem;
@@ -40,7 +41,7 @@ class CarrinhoController extends Controller
         return view('carrinho.formulario');
      }
 
-     public function finalizar(Request $request)
+     public function finalizar(FinalizarFormRequest $request)
      {
         
          $pedido = pedidos::create([
@@ -48,13 +49,17 @@ class CarrinhoController extends Controller
          ]);
          
 
-         // pedidoItem::create([
-         //    'produtoId' => $request->id,
-         //    'pedidoId' => $request->itens,
-         //    'valor' => $request->valor,
-         //    'quantidade' => $request->quantidade,
-         //    'subtotal' =>$request->total,
-         // ]);
+          $finalizado = pedidoItem::create([
+             'pedidoId' => $pedido->id,
+             'valor' => $request->valor,
+            'quantidade' => $request->quantidade,
+             'subtotal' =>$request->total,
+          ]);
+
+          $finalizado->produtos()->attach($request->itens);
+
+         
+
         return view('carrinho.finalizar');
      }
 
