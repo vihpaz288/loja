@@ -17,35 +17,33 @@ class UsuariosController extends Controller
 
     public function home()
     {
-        if (auth()->check()){
+        if (auth()->check()) {
             $itens = carrinho::with('produtos')->where('usuarioID', auth()->user()->id)->get();
-        }else{
+        } else {
             $itens = 0;
         }
         $search = request('search');
 
-        if ($search){
+        if ($search) {
             $produtos = Produtos::where([
-                ['decricao', 'like', '%'.$search.'%']
+                ['decricao', 'like', '%' . $search . '%']
             ])->get();
-            
-        }else{
+        } else {
             $produtos = Produtos::all();
-
         }
-    
+
         return view('home', compact('produtos', 'itens'));
     }
 
     public function create()
-     {
-        return view('create');
-     }
-
-     public function store(UserFormRequest $request)
     {
-         //dd($request->all())
-        
+        return view('create');
+    }
+
+    public function store(UserFormRequest $request)
+    {
+        //dd($request->all())
+
 
         $senha = Hash::make($request->password);
         User::create([
@@ -53,17 +51,14 @@ class UsuariosController extends Controller
             'email' => $request->email,
             'permissaoID' => $request->permissaoID,
             'password' => $senha,
-         ]);
-        
-         
-         return to_route('login.create');
-     }
-
-     public function formulario(){
-        return view ('Cliente.formulario');
-     }
+        ]);
 
 
+        return to_route('login.create');
+    }
+
+    public function formulario()
+    {
+        return view('Cliente.formulario');
+    }
 }
-   
-

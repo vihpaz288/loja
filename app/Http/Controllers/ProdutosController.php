@@ -11,7 +11,7 @@ class ProdutosController extends Controller
 
      public function create()
      {
-        return view('vendedor.create');
+        return view('Produtos.create');
      }
 
      public function store(ProdutosFormRequest $request)
@@ -45,7 +45,7 @@ class ProdutosController extends Controller
     public function edit($id){
         $produtos = Produtos::findOrFail($id);
 
-        return view('vendedor.edit', ['produtos' => $produtos]);
+        return view('Produtos.edit', ['produtos' => $produtos]);
 
      }
 
