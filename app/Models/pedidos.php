@@ -10,11 +10,16 @@ class pedidos extends Model
     use HasFactory;
     protected $table = 'pedidos';
     protected $fillable = ([
-        'usuarioId',
+        'usuarioId'
     ]);
 
     public function user()
     {
         return $this->belongsTo(User::class, 'usarioId', 'id');
+    }
+
+    public function produtos()
+    {
+        return $this->belongsToMany(produtos::class, 'pedido_items', 'pedidoId', 'produtoId');
     }
 }

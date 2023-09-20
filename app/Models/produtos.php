@@ -15,10 +15,7 @@ class Produtos extends Model
         'decricao',
         'precoUnitario',
         'quantidade',
-        'foto1',
-        'foto2',
-        'foto3'
-
+        'foto',
     ];
 
     public function pedido()

@@ -25,17 +25,15 @@ class CarrinhoController extends Controller
 
    public function store(Request $request)
    {
-
-
       carrinho::create([
          'produtoID' => $request->id,
          'usuarioID' => auth()->user()->id,
          'quantidade' => $request->quantidade,
-
       ]);
 
-      return redirect()->route('home');
+      return redirect()->route('teste');
    }
+
    public function formulario()
    {
       return view('carrinho.formulario');
@@ -43,36 +41,20 @@ class CarrinhoController extends Controller
 
    public function finalizar(FinalizarFormRequest $request)
    {
-
-      dd($request->all());
-      $itensNoCarrinho = carrinho::get();
-
-      // dd($itensNoCarrinho);
-
+      $carrinhos = carrinho::where('usuarioID', auth()->user()->id)->get();
       $pedido = pedidos::create([
          'usuarioId' => auth()->user()->id,
       ]);
-
-
-      // $finalizado = pedidoItem::create([
-      //    'pedidoId' => $pedido->id,
-      //    'valor' => $request->valor,
-      //    'quantidade' => $request->quantidade,
-      //    'subtotal' => $request->total,
-      // ]);
-
-      // dd($finalizado);
-
-      // $finalizado->produtos()->attach($request->itens);
-
-
+      foreach ($carrinhos as $carrinho) {
+         carrinho::findOrFail($carrinho->id)->delete();
+      }
+      $pedido->produtos()->attach($request->produtos);
 
       return view('carrinho.finalizar');
    }
 
    public function destroy($id)
    {
-
       carrinho::findOrFail($id)->delete();
       return redirect()->route('carrinho.index');
    }

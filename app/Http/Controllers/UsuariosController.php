@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UsuariosController extends Controller
 {
-
-
     public function home()
     {
         if (auth()->check()) {
@@ -43,8 +41,6 @@ class UsuariosController extends Controller
     public function store(UserFormRequest $request)
     {
         //dd($request->all())
-
-
         $senha = Hash::make($request->password);
         User::create([
             'name' => $request->name,
@@ -53,12 +49,32 @@ class UsuariosController extends Controller
             'password' => $senha,
         ]);
 
-
         return to_route('login.create');
     }
 
     public function formulario()
     {
         return view('Cliente.formulario');
+    }
+
+
+    public function teste()
+    {
+        if (auth()->check()) {
+            $itens = carrinho::with('produtos')->where('usuarioID', auth()->user()->id)->get();
+        } else {
+            $itens = 0;
+        }
+        $search = request('search');
+
+        if ($search) {
+            $produtos = Produtos::where([
+                ['decricao', 'like', '%' . $search . '%']
+            ])->get();
+        } else {
+            $produtos = Produtos::all();
+        }
+
+        return view('teste.teste', compact('produtos', 'itens'));
     }
 }

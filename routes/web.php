@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PedidoItemController;
+use App\Http\Controllers\PedidosController;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\UsuariosController;
+use App\Models\pedidoItem;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('Produtos')->group(function () {
@@ -26,5 +29,10 @@ Route::get('/sair', [LoginController::class, 'sair'])->name('sair');
 Route::get('/carrinho/index', [CarrinhoController::class, 'lista'])->name('carrinho.index');
 Route::post('/carrinho/store', [CarrinhoController::class, 'store'])->name('carrinho.store');
 Route::get('/carrinho/formulario', [CarrinhoController::class, 'formulario'])->name('carrinho.formulario');
-Route::get('/carrinho/finalizar', [CarrinhoController::class, 'finalizar'])->name('carrinho.finalizar');
+Route::post('/carrinho/finalizar', [CarrinhoController::class, 'finalizar'])->name('carrinho.finalizar');
 Route::delete('/carrinho/{id}', [CarrinhoController::class, 'destroy'])->name('carrinho.destroy');
+
+Route::get('/teste', [UsuariosController::class, 'teste'])->name('teste');
+
+
+

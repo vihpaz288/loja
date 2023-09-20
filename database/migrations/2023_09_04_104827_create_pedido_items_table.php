@@ -17,9 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('produtoId')->constrained('produtos');
             $table->foreignId('pedidoId')->constrained('pedidos');
-            $table->double('valor');
-            $table->integer('quantidade');
-            $table->double('subtotal');
             $table->timestamps();
         });
     }

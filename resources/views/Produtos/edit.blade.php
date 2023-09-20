@@ -17,7 +17,7 @@
 <body>
     <section class="section seller"
         style="background-image: url('sua-imagem-de-fundo.jpg'); background-size: cover; background-repeat: no-repeat;">
-        <a href="{{ route('home') }}" id="back-button"><ion-icon name="arrow-back-circle"></ion-icon> Voltar</a>
+        <a href="{{ route('teste') }}" id="back-button"><ion-icon name="arrow-back-circle"></ion-icon> Voltar</a>
         <section class="section seller"
             style="background-image: url('sua-imagem-de-fundo.jpg'); background-size: cover; background-repeat: no-repeat;">
             <div class="container">

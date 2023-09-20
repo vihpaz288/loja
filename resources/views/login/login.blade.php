@@ -143,7 +143,7 @@
         .content::before {
             content: "";
             position: absolute;
-            background-color: #000000;
+            background-color: #7136d1;
             width: 40%;
             height: 100%;
             border-top-left-radius: 15px;
@@ -207,14 +207,14 @@
         }
 
         .btn-second {
-            background-color: #000000;
-            border: 1px solid #000000;
+            background-color: #7136d1;
+            border: 1px solid #7136d1;
             transition: background-color .5s;
         }
 
         .btn-second:hover {
             background-color: #fff;
-            border: 1px solid #000000;
+            border: 1px solid #7136d1;
             color: #000000;
         }
 

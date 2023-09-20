@@ -18,7 +18,7 @@
 <body>
     <section class="section seller"
         style="background-image: url('sua-imagem-de-fundo.jpg'); background-size: cover; background-repeat: no-repeat;">
-        <a href="{{ route('home') }}" id="back-button"><ion-icon name="arrow-back-circle"></ion-icon> Voltar</a>
+        <a href="{{ route('teste') }}" id="back-button"><ion-icon name="arrow-back-circle"></ion-icon> Voltar</a>
        
             <div class="container">
                 <h2 class="h2 section-title">Área do Vendedor</h2>
@@ -28,16 +28,8 @@
                     id="product-form">
                     @csrf
                     <div class="form-group">
-                        <label for="product-image1">Imagem 1 do Produto</label>
-                        <input type="file" id="product-image1" name="foto1" accept="image/*" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="product-image2">Imagem 2 do Produto</label>
-                        <input type="file" id="product-image2" name="foto2" accept="image/*" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="product-image3">Imagem 3 do Produto</label>
-                        <input type="file" id="product-image3" name="foto3" accept="image/*" required>
+                        <label for="product-image1">Imagem do Produto</label>
+                        <input type="file" id="product-image1" name="foto" accept="image/*" required>
                     </div>
                     <div class="form-group">
                         <label for="product-description">Descrição do Produto</label>
