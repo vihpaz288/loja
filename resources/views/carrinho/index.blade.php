@@ -16,7 +16,7 @@
             margin: 0;
             padding: 0;
         }
-        
+    
         header {
             background-color: #6a5acd;
             color: #fff;
@@ -93,9 +93,6 @@
         </style>
 
      <header>
-    <!-- <li class="navbar-item">
-        <a href="{{ route('teste') }}" class="navbar-link">Inicio</a>
-    </li> -->
         <h1>Carrinho de Compras</h1>
     </header> 
     <main>
@@ -106,7 +103,6 @@
                     @csrf
                     @method('DELETE')
         <div class="cart-item">
-            
             <div class="item-details">
                 <h2>{{ $iten->produtos->decricao }}</h2>
                 <p>Valor:{{ $iten->produtos->precoUnitario }}</p>
@@ -132,7 +128,6 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Insira seus dados</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <div class="modal-body">
                     <div class="col-md-6">
                         <label for="inputEmail4" class="form-label">Nome</label>
@@ -175,20 +170,7 @@
                         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
         </script> 
-        {{-- <script type="text/javascript">
-            const formFinalizarCompra = document.getElementById('form-finalizar-compra');
-
-            const buttonFinalizarCompra = document.getElementById('btn-finalizar-compra');
-
-            buttonFinalizarCompra.addEventListener('click', function() {
-                formFinalizarCompra.submit();
-            });
-            const submeterFormularioDeExclusao = (itemId) => {
-                const formItem = document.getElementById(`form-item-${itemId}`);
-                formItem.submit();
-            }
-        </script> --}}
-         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
         <script>
             $('#opcao').on('change', function(){
                 let opcao = $('#opcao').val()

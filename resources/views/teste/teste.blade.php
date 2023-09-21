@@ -865,7 +865,6 @@
             font-weight: var(--fw-600);
             padding-inline: 20px;
         }
-
         .footer-bottom {
             background: var(--rich-black-fogra-29);
             padding-block: 20px;
@@ -933,98 +932,78 @@
             .cta-card {
                 text-align: left;
             }
-
             .cta-card .card-title {
                 max-width: 14ch;
             }
-
             .cta-card .btn-link {
                 margin-inline: 0;
             }
-
             .insta-post-list .insta-post-item {
                 min-width: 25%;
             }
-
             .footer-brand .logo {
                 margin-bottom: 0;
             }
-
             .footer-brand {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
             }
-
             .footer-link-box {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 column-gap: 30px;
             }
-
         }
 
         @media (min-width: 768px) {
             :root {
                 --fs-2: 3rem;
             }
-
             .container {
                 max-width: 720px;
             }
-
             .h4 {
                 --fs-5: 2rem;
             }
-
             .special-banner .banner-title {
                 --fs-4: 2.2rem;
             }
-
             .special-product .has-scrollbar>li {
                 min-width: 100%;
             }
-
             .special .container {
                 display: flex;
                 gap: 25px;
             }
-
             .special .section-title {
                 margin-block-start: 0;
             }
-
             .special-banner,
             .special-product {
                 min-width: calc(50% - 12.5px);
             }
-
             .special-banner {
                 height: auto;
             }
-
             .insta-post-list .insta-post-item {
                 min-width: 20%;
             }
-
              .go-top-btn {
                 padding: 15px;
                 border-width: 6px;
                 bottom: 30px;
                 right: 30px;
             }
-
         }
 
         @media (min-width: 992px) {
             :root {
                 --fs-3: 2.4rem;
             }
-
             .container {
                 max-width: 970px;
             }
-
             .has-scrollbar>li {
                 min-width: calc(33.33% - 16.66px);
             }
@@ -1035,160 +1014,125 @@
             .overlay {
                 display: none;
             }
-
             .navbar,
             .navbar-list,
             .nav-action-list {
                 all: unset;
             }
-
             .navbar-item:not(:last-child) {
                 border: none;
             }
-
             .navbar-list,
             .nav-action-list {
                 display: flex;
             }
-
             .nav-action-list {
                 gap: 20px;
             }
-
             .navbar {
                 display: flex;
                 align-items: center;
                 flex-grow: 1;
             }
-
             .navbar-list {
                 margin-inline: auto;
                 gap: 35px;
             }
-
             .navbar-link {
                 font-family: var(--ff-roboto);
                 font-weight: var(--fw-500);
             }
-
             .nav-action-list>li:first-child {
                 display: block;
             }
-
             .nav-action-btn {
                 position: relative;
             }
-
             .nav-action-badge ion-icon {
                 --ionicon-stroke-width: 30px;
             }
-
             .nav-action-badge {
                 position: absolute;
                 top: 5px;
                 right: -12px;
             }
-
             .hero {
                 height: 480px;
             }
-
             .product-list {
                 grid-template-columns: repeat(3, 1fr);
             }
-
             .cta-list {
                 grid-template-columns: 1fr 1fr;
                 gap: 25px;
             }
-
             .cta-card {
                 padding-inline: 50px;
             }
-
             .special-banner {
                 min-width: calc(33.33% - 25px);
             }
-
             .special-product {
                 min-width: 66.66%;
             }
-
             .special-product .has-scrollbar>li {
                 min-width: calc(50% - 12.5px);
             }
-
             .insta-post-list .insta-post-item {
                 min-width: 16.666%;
             }
 
         }
 
-
         @media (min-width: 1200px) {
             :root {
                 --fs-1: 5rem;
                 --fs-2: 3.6rem;
             }
-
             .container {
                 max-width: 1280px;
             }
-
             .hero {
                 height: 580px;
             }
-
             .hero .container {
                 max-width: 1000px;
             }
-
             .hero-text {
                 font-size: var(--fs-6);
                 max-width: 50ch;
             }
-
             .product-list {
                 grid-template-columns: repeat(4, 1fr);
             }
-
             .special-banner {
                 min-width: calc(25% - 25px);
             }
-
             .special-product .has-scrollbar>li {
                 min-width: calc(33.33% - 16.66px);
             }
-
             .special-banner .banner-title {
                 --fs-4: 2.4rem;
             }
-
             .service-item {
                 width: 275px;
             }
-
             .service-card .card-icon {
                 min-width: 70px;
                 height: 70px;
             }
-
             .service-card .card-title {
                 --fs-6: 2rem;
             }
-
             .insta-post {
                 padding-block-end: 0;
             }
-
             .insta-post-list .insta-post-item {
                 min-width: 12.5%;
             }
-
             .insta-post-list {
                 padding-bottom: 0;
             }
-
             .footer-link-box {
                 grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
                 gap: 50px;
@@ -1250,14 +1194,12 @@
                         padding: 6px;
                         margin-right: 10px;
                     }
-
                     #searchInput {
                         border: none;
                         outline: none;
                         width: 100%;
                         padding: 6px;
                     }
-
                     #searchButton {
                         background-color: #9c27b0;
                         color: white;
@@ -1266,7 +1208,6 @@
                         cursor: pointer;
                         padding: 6px 12px;
                     }
-
                     #searchButton:hover {
                         background-color: #7b1fa2;
                     }
@@ -1274,6 +1215,9 @@
                 <ul class="navbar-list">
                     @if (auth()->check())
                         @if (auth()->user()->permissaoID == 1)
+                        <li class="navbar-item">
+                            <a href="{{ route('relatorio') }}" class="navbar-link">Relatorio</a>
+                        </li>
                             <li>
                                 <a class="nav-action-btn" id="carrinho-button" href="{{ route('Produtos.create') }}">
                                 <i class="fa-regular fa-square-plus"></i>
@@ -1545,7 +1489,7 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="footer-list">
+                    {{-- <ul class="footer-list">
                         <li>
                             <p class="footer-list-title">Minha Conta</p>
                         </li>
@@ -1561,7 +1505,7 @@
                                 <span class="footer-link-text">Ver Carrinho</span>
                             </a>
                         </li>
-                    </ul>
+                    </ul> --}}
                     <div class="footer-list">
                         <p class="footer-list-title">Horário de Abertura</p>
                         <table class="footer-table">
@@ -1589,14 +1533,14 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="footer-list">
+                    {{-- <div class="footer-list">
                         <p class="footer-list-title">Boletim de Notícias</p>
                         <p class="newsletter-text">
                             Transforme com autoridade as potencialidades 24 horas por dia, 7 dias por semana, com
                             parcerias livres de
                             erros.
                         </p>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

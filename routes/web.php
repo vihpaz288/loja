@@ -33,6 +33,8 @@ Route::post('/carrinho/finalizar', [CarrinhoController::class, 'finalizar'])->na
 Route::delete('/carrinho/{id}', [CarrinhoController::class, 'destroy'])->name('carrinho.destroy');
 
 Route::get('/teste', [UsuariosController::class, 'teste'])->name('teste');
+Route::get('/relatorio', [PedidosController::class, 'relatorio'])->name('relatorio');
+
 
 
 
